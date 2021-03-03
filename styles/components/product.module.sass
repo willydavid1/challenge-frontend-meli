@@ -1,0 +1,54 @@
+@import ../variables
+
+$image-dimensions: 11.25rem
+
+.wrapper
+  border-radius: 5px
+  min-height: 9rem
+  display: grid
+  grid-template-columns: $image-dimensions 1fr 15rem
+  grid-gap: 1rem
+  & .figure
+    position: relative
+  & .detail
+    position: absolute
+    top: 0
+    background: $white-main
+    width: 100%
+    height: 100%
+    transition: $transition
+    opacity: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 4px
+  &:hover
+    & .figure
+      cursor: pointer
+    & .detail
+      opacity: 0.8
+  & .img
+    height: $image-dimensions
+    width: $image-dimensions
+    border-radius: 4px
+    object-fit: cover
+  & .priceWrapper
+    display: flex
+    align-items: center
+    margin: 1rem 0 2rem 0 // 16px 0 32px 0
+    & .price
+      font-size: 1.5rem // 24px
+      margin-right: 0.5rem
+    & .freeShipping
+      height: 1.5rem
+      width: 1.5rem
+  & .description
+    font-size: 1.125rem
+    max-width: 30rem
+    text-align: start
+    overflow-wrap: break-word
+    max-height: 6rem
+    overflow: auto
+  & .location
+    font-size: .75rem // 12px
+    margin: 2rem 0
