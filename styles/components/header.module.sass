@@ -1,0 +1,45 @@
+@import ../variables
+
+$height-header: 3.5rem
+$width-icon: 2.5rem
+
+.headerLayout
+  background: $yellow-main
+  height: $height-header
+
+.headerWrapper
+  display: flex
+  align-items: center
+  height: $height-header
+  justify-content: space-around
+  & img:first-of-type
+    height: 3rem
+
+.inputWrapper
+  width: 40rem
+  height: 2rem
+  border-radius: 4px
+  overflow: hidden
+  position: relative
+  & input:first-of-type
+    height: 100%
+    width: calc( 98% - #{$width-icon} )
+    padding: 0 1%
+  & .iconWrapper
+    background: $white-main
+    position: absolute
+    top: 0
+    right: 0
+    height: 100%
+    width: $width-icon
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    & img
+      height: 1.2rem
+      width: 1.2rem
+      transition: $transition
+    &:hover
+      & img
+        transform: scale(1.2)
