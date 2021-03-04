@@ -30,3 +30,25 @@ export const getValueThatIsRepeatedMost = (values = []) => {
     }, {})
   return Object.entries(valueThatIsRepeatedTheMost).reduce((prev, item) => (item?.[1]?.timesThatsRepeated >= prev?.[1]?.timesThatsRepeated ? item : prev))?.[0]
 }
+
+export const generatePayloadForItems = (categories = [], breadcrumb = [], items = []) => {
+  return {
+    author: {
+      name: 'Willy David',
+      lastname: 'Da Conceicao Lozada'
+    },
+    categories,
+    breadcrumb,
+    items: items?.map((item) => ({
+      id: item?.id,
+      title: item?.title,
+      price: {
+        currency: item?.currency_id,
+        ...getDecimalsAndAmount(item?.price)
+      },
+      picture: item?.thumbnail,
+      condition: item?.condition,
+      free_shipping: item?.shipping?.free_shipping
+    }))
+  }
+}
