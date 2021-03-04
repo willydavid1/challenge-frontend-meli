@@ -3,11 +3,14 @@ import { Provider } from 'react-redux'
 import { createWrapper } from 'next-redux-wrapper'
 import store from 'redux/store'
 import 'styles/globals.sass'
+import Layout from 'components/layout'
 
 function MyApp ({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Provider>
   )
 }

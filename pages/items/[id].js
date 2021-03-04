@@ -1,9 +1,16 @@
 import React from 'react'
+import { Product } from 'components/product'
+import styles from 'styles/pages/itemDetail.module.sass'
 
 const ItemDetail = () => {
   return (
     <div>
-      Detalle del ítem
+      <div className={styles.breadcrumbWrapper}>
+        BreadCrumb
+      </div>
+      <Product
+        productDetail
+      />
     </div>
   )
 }

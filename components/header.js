@@ -25,7 +25,7 @@ export const Header = () => {
             <input
               onKeyUp={(e) => {
                 if (e.key === 'Enter') {
-                  redirectUser('/items')
+                  valueSearchInput?.length > 0 && redirectUser('/items')
                 }
               }}
               type="text"
@@ -35,7 +35,7 @@ export const Header = () => {
               }}
               value={valueSearchInput}
             />
-            <div className={`not-selectable ${styles.iconWrapper}`} onClick={() => redirectUser('/items')}>
+            <div className={`not-selectable ${styles.iconWrapper}`} onClick={() => valueSearchInput?.length > 0 && redirectUser('/items')}>
               <img src="/media/ic_Search@2x.png" />
             </div>
           </div>

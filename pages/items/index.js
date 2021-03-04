@@ -1,17 +1,13 @@
 import React from 'react'
-import { Header } from 'components/header'
 import { ListProducts } from 'components/listProducts'
 
 const ListItems = () => {
   return (
-    <div>
-      <Header />
-      <ListProducts />
-    </div>
+    <ListProducts />
   )
 }
 
-export async function getStaticProps (ctx) {
+export async function getServerSideProps (ctx) {
   return {
     props: {}
   }

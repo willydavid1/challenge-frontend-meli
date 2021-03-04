@@ -23,10 +23,11 @@ $image-dimensions: 11.25rem
     align-items: center
     border-radius: 4px
   &:hover
-    & .figure
-      cursor: pointer
-    & .detail
-      opacity: 0.8
+    &:not(.productDetail)
+      .figure
+        cursor: pointer
+      .detail
+        opacity: 0.8
   & .img
     height: $image-dimensions
     width: $image-dimensions
@@ -39,6 +40,7 @@ $image-dimensions: 11.25rem
     & .price
       font-size: 1.5rem // 24px
       margin-right: 0.5rem
+      font-weight: 400
     & .freeShipping
       height: 1.5rem
       width: 1.5rem
@@ -49,6 +51,50 @@ $image-dimensions: 11.25rem
     overflow-wrap: break-word
     max-height: 6rem
     overflow: auto
+    font-weight: 500
   & .location
     font-size: .75rem // 12px
     margin: 2rem 0
+
+.productDetail
+  grid-template-columns: 1fr 20rem
+  grid-gap: 1rem
+  grid-auto-rows: 35rem 20rem
+  margin-bottom: 4rem
+  & .soldOutWrapper
+    margin: 2rem 0 1rem 0
+    & h5
+      font-weight: 400
+      font-size: 0.875rem
+  & .img
+    height: 100%
+    width: 100%
+    border-radius: 0
+    object-fit: cover
+  & .description
+    font-size: 1.5rem
+    max-height: none
+    margin-bottom: 2rem
+  & .priceWrapper
+    margin: 0 0 2rem
+    & .price
+      font-size: 2.875rem
+  & .buyButton
+    background-color: $blue
+    width: calc( 100% - 2rem )
+    color: #fff
+    border-radius: 4px
+    padding: 0.5rem
+    height: 2.75rem
+    cursor: pointer
+    transition: .1s
+    &:active
+      transform: scale(.95)
+  & .descriptionWrapper
+    overflow: auto
+    margin: 2rem
+    & .descriptionTitle
+      font-size: 1.75rem
+      margin: 2rem 0
+    & p
+      margin-bottom: 2rem

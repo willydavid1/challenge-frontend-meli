@@ -6,7 +6,7 @@ export const ListProducts = ({
   products = [1, 2, 3, 4, 5, 6]
 }) => {
   return (
-    <div className={`container ${styles.wrapper}`}>
+    <div className={styles.wrapper}>
       <div>
         BreadCrumb
       </div>
