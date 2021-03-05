@@ -1,34 +1,107 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Challenge Frontend- Meli | Willy David Da Conceicao
 
-## Getting Started
+Bienvenido! En este repositorio/proyecto podrás encontrar el código de la app. La app es un buscador de productos disponibles en mercadolibre. construido con ReactJS, Redux, CSS modules / Sass, Hooks, Peticiones HTTP y más...
+ 
+![](./github-images/header.png)
+![](./github-images/products.png)
+![](./github-images/product.png)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
+# Instalación
+
+Para poder correr el proyecto en localhost es requerido tener instalado NodeJS en tu equipo y NPM (Node Package Manager) para poder instalar las dependencias necesarias.
+
+Instalar las dependencias.
+
+```sh
+$ cd challenge-frontend-meli
+$ npm i | o npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts / Comandos disponibles
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+El proyecto cuenta con los siguientes comandos (NPM SCRIPTS)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```sh
+$ npm run dev | Corre el proyecto en modo desarrollo puedes abrir la app en el puerto :3000 http://localhost:3000/
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+$ npm run build | Compila el código para prod
 
-## Learn More
+$ npm start OR $ npm run start | Corre el proyecto en modo producción 
+```
 
-To learn more about Next.js, take a look at the following resources:
+# Tecnologías Usadas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- NextJS / Framework SSR - Para las funciones backend use las rutas /api/ de NextJS disponible en la carpeta /pages/api/ROUTES y las peticiones de la interface ocurren en el Client Side (navegador)
+- ReactJS
+- Sass
+- Redux
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Rutas de la app
 
-## Deploy on Vercel
+## Frontend
+- / | Raíz del proyecto muestra el header
+- /items?search=:query: | Lista los productos buscados
+- /items/:id: | Muestra información detallada de un solo producto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Backend | API
+- /api/items?q=:query: | Retorna los datos en formato JSON del producto a buscar
+- /api/items/:id: | Retorna información detallada de un solo producto formato JSON
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Ejemplo de respuesta del primer endpoint
+
+```json
+{
+   "author":{
+      "name":"Willy David",
+      "lastname":"Da Conceicao Lozada"
+   },
+   "categories":[
+      "MLA393761",
+      "MLA61216",
+      "MLA48877",
+      "MLA409140"
+   ],
+   "breadcrumb":[
+      {
+         "id":"MLA409431",
+         "name":"Salud y Equipamiento Médico"
+      },
+      {
+         "id":"MLA6556",
+         "name":"Equipamiento Médico"
+      },
+      {
+         "id":"MLA409095",
+         "name":"Instrumental Médico"
+      },
+      {
+         "id":"MLA409140",
+         "name":"Guantes Descartables"
+      }
+   ],
+   "items":[
+      {
+         "id":"MLA674538889",
+         "title":"Guantes Gimnasio P/pesas Gym Pilates Fitness Neoprene El Rey",
+         "price":{
+            "currency":"ARS",
+            "amount":719,
+            "decimals":99
+         },
+         "picture":"http://http2.mlstatic.com/D_909925-MLA31017431830_062019-O.jpg",
+         "condition":"new",
+         "free_shipping":false,
+         "location":{
+            "state_id":"AR-C",
+            "state_name":"Capital Federal",
+            "city_id":"TUxBQlZJTDQyMjBa",
+            "city_name":"Villa Crespo"
+         }
+      },
+      {},
+      {},
+      {}
+   ]
+}
+```
