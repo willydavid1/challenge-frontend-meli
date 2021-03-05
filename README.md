@@ -7,6 +7,9 @@ Bienvenido! En este repositorio/proyecto podrás encontrar el código de la app.
 ![](./github-images/product.png)
 
 
+# Demo
+https://challenge-frontend-meli.vercel.app/
+
 # Instalación
 
 Para poder correr el proyecto en localhost es requerido tener instalado NodeJS en tu equipo y NPM (Node Package Manager) para poder instalar las dependencias necesarias.
