@@ -11,9 +11,9 @@ export default async (req, res) => {
   }
   try {
     const requestProduct = apiResquest(`${config.BASE_URL}/items/${query?.id}`)
-    const requestsProductDescription = apiResquest(`${config.BASE_URL}/items/${query?.id}/description`)
+    const requestsProductDescription = apiResquest(`${config.BASE_URL}/items/${encodeURIComponent(query?.id)}/description`)
     const [{ data: dataProduct }, { data: dataDescription }] = await Promise.all([requestProduct, requestsProductDescription])
-    const { data: categories } = await apiResquest(`${config.BASE_URL}/sites/MLA/search?category=${dataProduct?.category_id}`)
+    const { data: categories } = await apiResquest(`${config.BASE_URL}/sites/MLA/search?category=${encodeURIComponent(dataProduct?.category_id)}`)
 
     const payloadResponse = {
       author: {

@@ -10,7 +10,7 @@ export default async (req, res) => {
     return
   }
   try {
-    const { data } = await apiResquest(`${config.BASE_URL}sites/MLA/search?q=${query?.q}`)
+    const { data } = await apiResquest(`${config.BASE_URL}sites/MLA/search?q=${encodeURIComponent(query?.q)}`)
     if (data?.results <= 0) {
       return res.status(200).json(generatePayloadForItems())
     }

@@ -48,7 +48,12 @@ export const generatePayloadForItems = (categories = [], breadcrumb = [], items 
       },
       picture: item?.thumbnail,
       condition: item?.condition,
-      free_shipping: item?.shipping?.free_shipping
+      free_shipping: item?.shipping?.free_shipping,
+      location: item?.address
     }))
   }
+}
+
+export const formatNumber = (number = '', separator = '') => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator)
 }

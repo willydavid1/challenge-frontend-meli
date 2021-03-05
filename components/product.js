@@ -1,10 +1,9 @@
 import React from 'react'
 import styles from 'styles/components/product.module.sass'
-import { useRouter } from 'next/router'
+import { formatNumber } from 'tools'
+import Link from 'next/link'
 
 export const Product = ({ productDetail, productData = {} }) => {
-  const router = useRouter()
-
   if (productDetail) {
     return (
       <div className={`${styles.wrapper} ${styles.productDetail}`}>
@@ -46,25 +45,33 @@ export const Product = ({ productDetail, productData = {} }) => {
   return (
     <div className={`${styles.wrapper} ${productDetail ? styles.productDetail : ''}`}>
       <figure className={styles.figure}>
-        <img className={styles.img} src="https://cdn.pixabay.com/photo/2021/01/24/20/47/tabby-5946499_960_720.jpg" alt=""/>
-        <div className={`${styles.detail} not-selectable`} onClick={() => router.push(`/items/${productData?.id ?? 5}`)}>
-          <h5>Ver Detalles</h5>
-        </div>
+        <img className={styles.img} src={productData?.picture} alt=""/>
+        <Link href={`/items/${encodeURIComponent(productData?.id ?? 5)}`}>
+          <a className={`${styles.detail} not-selectable`}>Ver Detalles</a>
+        </Link>
       </figure>
       <div>
         <div className={styles.priceWrapper}>
-          <h2 className={styles.price}>$ 1.980</h2>
-          <img className={styles.freeShipping} src="/media/ic_shipping@2x.png" alt="Free Shipping"/>
+          <h2 className={styles.price}>$ {`${formatNumber(productData.price.amount, '.')}`}</h2>
+          {
+            productData?.free_shipping && (
+              <img className={styles.freeShipping} src="/media/ic_shipping@2x.png" alt="Free Shipping"/>
+            )
+          }
         </div>
         <div>
           <h4 className={styles.description}>
-            Descripcion del producto super largo para testear como se ve en el viewport. texto texto texto texto texto texto texto texto texto texto texto texto
+            {
+              productData?.title
+            }
           </h4>
         </div>
       </div>
       <div>
         <h2 className={styles.location}>
-          Ubicación
+          {
+            productData?.location?.state_name
+          }
         </h2>
       </div>
     </div>
